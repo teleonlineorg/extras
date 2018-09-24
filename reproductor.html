@@ -5,7 +5,7 @@
 <body>
 <div id="player"></div>
 <script>
-		/*var getUrlParameter = function getUrlParameter(sParam) {
+		var getUrlParameter = function getUrlParameter(sParam) {
 			var sPageURL = decodeURIComponent(window.location.search.substring(1)),
 				sURLVariables = sPageURL.split('&'),
 				sParameterName,
@@ -22,9 +22,9 @@
 		
 		var canalAReproducir = getUrlParameter("channel");
 		
-		if (canalAReproducir.includes("m3u8")) {*/
+		if (canalAReproducir.includes("m3u8")) {
 			var player = new Clappr.Player({
-			source: window.atob('<?php echo base64_encode($m3u8);?>'),
+			source: canalAReproducir,
 			parentId: '#player',
 			height: '100%',
 			width: '100%',
@@ -33,9 +33,7 @@
                         watermark: "https://teleonline.org//img/logo/logo-teleonline.png", position: 'top-left',
                         watermarkLink: "https://teleonline.org/",
 			});
-	
-		//}		
-
+		}		
 </script>
 </body>
 </html>
