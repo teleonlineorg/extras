@@ -32,26 +32,19 @@
 				disableVideoTagContextMenu: true,
                                 watermark: "https://teleonline.org//img/logo/logo-teleonline.png", position: 'top-left',
                                 watermarkLink: "https://teleonline.org/",
-				plugins: [ChromecastPlugin,Clappr.HLS,Clappr.FlasHLS,LevelSelector],
-                                                    chromecast: {
-                                                      appId: '9DFB77C0',
-                                                      media: {
-                                                        title: '',
-                                                        subtitle: ''
-                                                      }
-                                                    },
-                                                    levelSelectorConfig: {
-                                                        title: 'Calidad',
-                                                        labels: {
-                                                            6: 'ULTRAHD 2160',
-                                                            5: 'FULLHD 1080',
-                                                            4: 'HD 720p',
-                                                            3: 'SD 540p',
-                                                            2: 'SD 480p',
-                                                            1: 'SD 360p',
-                                                            0: 'SD 120p',
-                                                        }
-                                                    }
+				plugins: [LevelSelector],
+					levelSelectorConfig: {
+					title: 'Calidad',
+					labels: {
+					6: 'ULTRAHD 2160',
+					5: 'FULLHD 1080',
+					4: 'HD 720p',
+					3: 'SD 540p',
+					2: 'SD 480p',
+					1: 'SD 360p',
+					0: 'SD 120p',
+					}
+                                        }
 			});
 		}		
 
