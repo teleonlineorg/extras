@@ -24,7 +24,7 @@
 		
 		if (channelToReproduce.includes("m3u8")) {
 			var player = new Clappr.Player({
-				source: window.atob('<?php echo base64_encode(channelToReproduce);?>'),
+				source: channelToReproduce,
 				parentId: '#player',
 				height: '100%',
 				width: '100%',
