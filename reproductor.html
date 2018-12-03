@@ -1,6 +1,7 @@
 <html>
 <head>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="https://cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
 </head>
 <body>
 <div id="player"></div>
@@ -32,6 +33,14 @@
 			disableVideoTagContextMenu: true,
                         watermark: "http://teleonline.org//img/logo/logo-teleonline.png", position: 'top-left',
                         watermarkLink: "http://teleonline.org/",
+			plugins: [ChromecastPlugin],
+			    chromecast: {
+			      appId: '9DFB77C0',
+			      media: {
+				title: 'Awesome Hot Air Balloon Slackline',
+				subtitle: 'You won\'t get much closer to Skylining than this!'
+			      }
+			    }
 			});
 		}		
 </script>
