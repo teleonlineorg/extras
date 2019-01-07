@@ -11,25 +11,34 @@
 				sURLVariables = sPageURL.split('&'),
 				sParameterName,
 				i;
-
 			for (i = 0; i < sURLVariables.length; i++) {
 				sParameterName = sURLVariables[i].split('=');
-
 				if (sParameterName[0] === sParam) {
 					return sParameterName[1] === undefined ? true : sParameterName[1];
 				}
 			}
 		};
-		
 		var canalAReproducir = getUrlParameter("channel");
-		
+		//Repro
 		if (canalAReproducir.includes("m3u8")) {
 			var player = new Clappr.Player({
 			source: canalAReproducir,
 			parentId: '#player',
-                    height: '500px',
-                    width: '100%',
-                });
+			height: '100%',
+			width: '100%',
+			autoPlay: true,
+			disableVideoTagContextMenu: true,
+                        watermark: "http://teleonline.org//img/logo/logo-teleonline.png", position: 'top-left',
+                        watermarkLink: "http://teleonline.org/",
+			plugins: [ChromecastPlugin],
+			    chromecast: {
+			      appId: '9DFB77C0',
+			      media: {
+				title: 'Awesome Hot Air Balloon Slackline',
+				subtitle: 'You won\'t get much closer to Skylining than this!'
+			      }
+			    }
+			});
 		}		
 </script>
 </body>
