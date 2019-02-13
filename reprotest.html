@@ -1,11 +1,38 @@
-var playerElement = document.getElementById("player-wrapper");
-
-var player = new Clappr.Player({
-  source: '//ccma-tva-es-abertis-live.hls.adaptive.level3.net/es/ngrp:tv3_web/master_DVR.m3u8',
-  poster: 'http://clappr.io/poster.png',
-  mute: true,
-  height: 360,
-  width: 640
-});
-
-player.attachTo(playerElement);
+<html>
+<head>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="https://cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
+</head>
+<body>
+<div id="player"></div>
+<script>
+		var getUrlParameter = function getUrlParameter(sParam) {
+			var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+				sURLVariables = sPageURL.split('&'),
+				sParameterName,
+				i;
+			for (i = 0; i < sURLVariables.length; i++) {
+				sParameterName = sURLVariables[i].split('=');
+				if (sParameterName[0] === sParam) {
+					return sParameterName[1] === undefined ? true : sParameterName[1];
+				}
+			}
+		};
+		var canalAReproducir = getUrlParameter("channel");
+		//Repro
+		if (canalAReproducir.includes("m3u8")) {
+      var player = new Clappr.Player({
+      parentId: '#player',
+      source: canalAReproducir,
+      poster: 'http://clappr.io/poster.png',
+      mute: true,
+      height: '100%',
+			width: '100%',
+      watermark: "https://teleonline.org/img/logo/logo-teleonline.png", position: 'top-left',
+      watermarkLink: "https://teleonline.org/"
+    });
+		}		
+</script>
+</body>
+</html>
