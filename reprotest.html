@@ -27,16 +27,16 @@
 		var canalAReproducir = getUrlParameter("channel");
 		//Repro
 		if (canalAReproducir.includes("m3u8")) {
-      var player = new Clappr.Player({
-      parentId: '#player',
-      source: canalAReproducir,
-      poster: 'http://clappr.io/poster.png',
-      mute: true,
-      height: '100%',
+			var player = new Clappr.Player({
+			parentId: '#player',
+			source: canalAReproducir,
+			poster: '',
+			mute: true,
+			height: '100%',
 			width: '100%',
-      watermark: "https://teleonline.org/img/logo/logo-teleonline.png", position: 'top-left',
-      watermarkLink: "https://teleonline.org/"
-    });
+		      watermark: "https://teleonline.org/img/logo/logo-teleonline.png", position: 'top-left',
+		      watermarkLink: "https://teleonline.org/"
+		    });
 		}		
 </script>
 </body>
