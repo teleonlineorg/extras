@@ -1,6 +1,7 @@
 <script type="text/javascript" src="//cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
+<!-- GTH -->
 <style>
     /* Fix the player container to take up 100% width and to calculate its height based on its children. */
     [data-player] {
