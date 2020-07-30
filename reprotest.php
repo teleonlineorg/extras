@@ -1,79 +1,51 @@
-<script type="text/javascript" src="//cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/clappr.level-selector/latest/level-selector.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js"></script>
-<!-- GTH -->
-<style>
-    /* Fix the player container to take up 100% width and to calculate its height based on its children. */
-    [data-player] {
-        position: relative;
-        width: 100%;
-        height: auto;
-        margin: 0;    
-    }
-    
-    /* Fix the video container to take up 100% width and to calculate its height based on its children. */
-    [data-player] .container[data-container] {
-        width: 100%;
-        height: auto;
-        max-height:550px;
-        position: relative;
-    }
-    
-    /* Fix the media-control element to take up the entire size of the player. */
-    [data-player] .media-control[data-media-control] {
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-    }
-    
-    /* Fix the video element to take up 100% width and to calculate its height based on its natural aspect ratio. */
-    [data-player] video {
-        position: relative;
-        display: block;
-        width: 100%;
-        height: auto;
-    }
-</style>
-<div id="player" class="embed-responsive embed-responsive-16by9"></div>
-<script>
-            window.addEventListener('load', function() {
-                var playerElement = document.getElementById("player");
-                var player = new Clappr.Player({
-                source: window.atob('<?php echo base64_encode($m3u8_1);?>'),
-                baseUrl: '/latest',
-                poster: '',
-                persistConfig: true,
-                flushLiveURLCache: true,
-                autoPlay: false,
-                maxBufferLength: 10,
-                actualLiveTime: true,
-                height: 'auto',
-                width:  "100%",
-                disableVideoTagContextMenu: true,
-                watermark: "https://teleonline.org/img/logo_reproductor.png", position: 'top-left',
-                watermarkLink: "https://teleonline.org/",
-                gaAccount: '',
-                gaTrackerName: 'teleonline_ORG_player',
-                mediacontrol: {seekbar: "yellow", buttons: "#yellow"},
-                plugins: [LevelSelector,ChromecastPlugin],
-                    levelSelectorConfig: {
-                        title: 'Calidad',
-                        labels: {
-                            3: 'HD 1080',
-                            2: 'HD 720',
-                            1: 'SD 404',
-                            0: 'SD 360',
-                        }
-                    },
-                    chromecast: {
-                          appId: '',
-                          media: {
-                            title: 'Ver la tele con Chromecast',
-                            subtitle: 'Por que ver la tele mola'
-                          }
-                        },
-                });
-                player.attachTo(playerElement);
-            });
-        </script>
+<html>
+   <head>
+      <meta name='theme-color' content='black'>
+      <meta name='apple-mobile-web-app-status-bar-style' content='black'>
+      <meta name='referrer' content='no-referrer'>
+      <meta content='width=device-width, initial-scale=1' name='viewport'>
+      <link href='favicon2.ico' rel='shortcut icon' type='image/x-icon'>
+      <script src='//cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js'></script>
+      <script src='//cdn.jsdelivr.net/npm/level-selector@latest/dist/level-selector.min.js'></script>
+      <script src='//cdn.jsdelivr.net/npm/clappr-chromecast-plugin@latest/dist/clappr-chromecast-plugin.min.js'></script>
+      <script src='//cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js'></script>
+      <script src='//cdn.jsdelivr.net/npm/dash-shaka-playback@latest/dist/dash-shaka-playback.min.js'></script>
+      <script src='//cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/dist/clappr-playback-rate-plugin.min.js'></script>
+   </head>
+   <body bgcolor='black' style='margin:0' oncontextmenu='return false' onkeydown='return false'>
+      <div id='player'></div>
+      <script>
+         window.onload = function() {
+             var player = new Clappr.Player({
+                 source: '<?php echo $m3u8_1;?>',
+                 parentId: '#player',
+                 mimeType: 'audio/mpeg',
+                 plugins: [LevelSelector, ChromecastPlugin, ClapprPip.PipButton, ClapprPip.PipPlugin, DashShakaPlayback, Clappr.MediaControl, PlaybackRatePlugin],
+                 events: {onReady: function() {var plugin = this.getPlugin('click_to_pause'); plugin && plugin.disable();},},
+                 height: '100%',
+                 width: '100%',
+                 autoPlay: true,
+                 shakaConfiguration: {
+                 manifest: {retryParameters: {maxAttempts: Infinity}},
+                 streaming: {retryParameters: {maxAttempts: Infinity}},
+                 drm: {retryParameters: {maxAttempts: Infinity}},
+                 },
+                 playbackRateConfig: {
+                 defaultValue: '1.00x',
+                 options: [
+                 {value: '0.10', label: '0.10x'},
+                 {value: '0.25', label: '0.25x'},
+                 {value: '0.50', label: '0.50x'},
+                 {value: '0.75', label: '0.75x'},
+                 {value: '1.00', label: '1.00x'},
+                 {value: '1.25', label: '1.25x'},
+                 {value: '1.50', label: '1.50x'},
+                 {value: '1.75', label: '1.75x'},
+                 {value: '2.00', label: '2.00x'},
+                 ]
+                 },
+             });
+         };
+      </script>
+   </body>
+</html>
