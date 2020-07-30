@@ -1,3 +1,4 @@
+<?php echo $m3u8_1;?>
 <html>
    <head>
       <meta name='theme-color' content='black'>
