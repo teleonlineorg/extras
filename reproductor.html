@@ -1,6 +1,7 @@
 <html>
    	<head>
-		<!-- Reproductor -->
+	<!-- Reproductor -->
+		<!-- https://teleonlineorg.github.io/extras/reproductor.html?channel= -->
 	      <meta name='theme-color' content='black'>
 	      <meta name='apple-mobile-web-app-status-bar-style' content='black'>
 	      <meta name='referrer' content='no-referrer'>
@@ -30,7 +31,7 @@
 					}
 				}
 		};
-		var canalAReproducir = getUrlParameter("channel");
+		var canalAReproducir = getUrlParameter("canal");
 		//Repro
 		if (canalAReproducir.includes("m3u8")) {
 			var player = new Clappr.Player({
