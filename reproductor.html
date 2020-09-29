@@ -1,7 +1,6 @@
 <html>
    	<head>
 	<!-- Reproductor -->
-		<!-- https://teleonlineorg.github.io/extras/reproductor.html?channel= -->
 	      <meta name='theme-color' content='black'>
 	      <meta name='apple-mobile-web-app-status-bar-style' content='black'>
 	      <meta name='referrer' content='no-referrer'>
@@ -31,11 +30,10 @@
 					}
 				}
 		};
-		var canalAReproducir = getUrlParameter("canal");
-		//Repro
-		if (canalAReproducir.includes("m3u8")) {
+		var reprocanal = getUrlParameter("c");
+		if (reprocanal.includes("m3u8") || reprocanal.includes("mpd") ) {
 			var player = new Clappr.Player({
-			source: 'https://rtvelivestream.akamaized.net/la1_dvr.m3u8',
+			source: reprocanal,
 			parentId: '#player',
                  	mimeType: 'audio/mpeg',
 			height: '100%',
