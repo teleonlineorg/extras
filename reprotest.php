@@ -1,10 +1,10 @@
-<?php echo $m3u8_1;?>
 <html>
    <head>
       <meta name='theme-color' content='black'>
       <meta name='apple-mobile-web-app-status-bar-style' content='black'>
       <meta name='referrer' content='no-referrer'>
       <meta content='width=device-width, initial-scale=1' name='viewport'>
+      <title>PHOTOCALL.TV - Streaming</title>
       <link href='favicon2.ico' rel='shortcut icon' type='image/x-icon'>
       <script src='//cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js'></script>
       <script src='//cdn.jsdelivr.net/npm/level-selector@latest/dist/level-selector.min.js'></script>
@@ -12,13 +12,14 @@
       <script src='//cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js'></script>
       <script src='//cdn.jsdelivr.net/npm/dash-shaka-playback@latest/dist/dash-shaka-playback.min.js'></script>
       <script src='//cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/dist/clappr-playback-rate-plugin.min.js'></script>
+      <script src='../js/keys.js'></script>
    </head>
    <body bgcolor='black' style='margin:0' oncontextmenu='return false' onkeydown='return false'>
       <div id='player'></div>
       <script>
          window.onload = function() {
              var player = new Clappr.Player({
-                 source: '<?php echo $m3u8_1;?>',
+                 source: 'https://a3m-a3-vod-dash.secure.footprint.net/live/nas_live/a3/dash/a3.mpd?begin=&end=&nvb=1596102766&nva=1596102776&hash=0e0033d6324cf53e73f501608954e3398ddfd82ba',
                  parentId: '#player',
                  mimeType: 'audio/mpeg',
                  plugins: [LevelSelector, ChromecastPlugin, ClapprPip.PipButton, ClapprPip.PipPlugin, DashShakaPlayback, Clappr.MediaControl, PlaybackRatePlugin],
